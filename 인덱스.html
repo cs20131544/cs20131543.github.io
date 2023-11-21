@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+                                     
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>유진건설</title>
+    <script src="script/jquery-1.12.3.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            vertical-align: top;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        body {
+            background: #fff;
+            color: #333;
+        }
+
+        .wrap {
+            width: 1200px;
+            margin: 0 auto;
+            height: 700px;
+            background: #fc6;
+            position: relative;
+        }
+
+        header {
+            background: #fcc;
+            height: 100px;
+            padding-top: 35px;
+            padding-left: 10px;
+            position: relative;
+        }
+
+        header h1 {
+            width: 177px;
+            height: 53px;
+        }
+
+        header h1 a {
+            display: block;
+            height: 100%;
+        }
+
+        nav {
+            position: absolute;
+            top: 59px;
+            right: 0;
+            z-index: 6;
+        }
+
+        .main {
+            display: flex;
+        }
+
+        .main>li>a {
+            display: block;
+            width: 120px;
+            background: #1a4975;
+            text-align: center;
+            font-weight: bold;
+            color: #fff;
+            padding: 10px;
+        }
+
+        .main>li:hover>a {
+            background: #333;
+        }
+
+        .sub {
+            display: none;
+        }
+
+        .sub>li>a {
+            display: block;
+            padding: 5px;
+            text-align: center;
+            font-size: 14px;
+            color: #fff
+        }
+
+        .sub>li>a:hover {
+            background: #1a4975;
+        }
+
+        .menubg {
+            background: rgba(0, 0, 0, .8);
+            width: 100%;
+            height: 150px;
+            position: absolute;
+            top: 100px;
+            left: 0;
+            z-index: 5;
+            display: none;
+        }
+
+        .slide {
+            height: 300px;
+            background: #369;
+            position: relative;
+        }
+
+        .slide ul li {
+            width: 1200px;
+            height: 300px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+
+        .slide ul li.s1 {
+            background: url(s1.jpg) no-repeat center/cover;
+            display: block;
+        }
+
+        .slide ul li.s2 {
+            background: url(s2.gif) no-repeat center/cover;
+        }
+
+        .slide ul li.s3 {
+            background: url(s3.jpg) no-repeat center/cover;
+        }
+
+        .slide ul li a {
+            display: block;
+            height: 100%;
+        }
+
+        .slide ul li p {
+            background: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            font-size: 28px;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .content {
+            height: 200px;
+            background: #ccc;
+            display: flex;
+        }
+
+        .content article {
+            width: 400px;
+        }
+
+        .content1 h2 {
+            width: 120px;
+            height: 34px;
+            background: #1a4975;
+            text-align: center;
+            color: #fff;
+            font-size: 18px;
+            padding: 5px 0;
+        }
+
+        .content1 div {
+            background: #1a4975;
+            padding: 10px;
+            height: 166px;
+        }
+
+        table {
+            color: #fff;
+        }
+
+        table th {
+            text-align: left;
+        }
+
+        table tr {
+            border-bottom: 1px dashed #fff
+        }
+
+        table a {
+            padding: 5px;
+            display: block;
+            width: 250px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .content .content2 {
+            background: #fff;
+        }
+
+        .content2 h2 {
+            width: 120px;
+            height: 34px;
+            background: #75531a;
+            text-align: center;
+            color: #fff;
+            font-size: 18px;
+            padding: 5px 0;
+        }
+
+        .content2 div {
+            background: #75531a;
+            padding: 10px;
+            height: 166px;
+        }
+
+        .content2 div ul {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .content2 div ul li img {
+            width: 120px;
+            height: 150px;
+
+        }
+
+        .content3 {
+            background: #eee;
+
+        }
+
+        .content3 h2 {
+            width: 120px;
+            height: 34px;
+            background: #cde0f1;
+            text-align: center;
+            color: #fff;
+            font-size: 18px;
+            padding: 5px 0;
+            margin-bottom: 30px;
+        }
+
+        .content3 ul {
+            display: flex;
+            text-align: center;
+        }
+
+        .content3 ul li {
+            margin-left: 35px;
+        }
+
+        .content3 ul li a {
+            display: block;
+            height: 100%;
+        }
+
+        .content3 ul li p {
+            width: 80px;
+            height: 80px;
+            background: #1a4975;
+            text-align: center;
+            padding-top: 15px;
+            border-radius: 20px;
+
+        }
+
+        .content3 img {
+            width: 50px;
+            height: 50px;
+        }
+
+        footer {
+            height: 100px;
+            background: #333;
+            color: #fff;
+            padding-top: 30px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        footer .fmenu {
+            display: flex;
+            width: 80%;
+            justify-content: center;
+        }
+
+        footer .fmenu li {
+            border-right: 1px solid #fff;
+            margin-right: 10px;
+            padding-right: 10px;
+            font-size: 14px;
+        }
+
+        footer .fmenu li:last-child {
+            border-right: 0;
+        }
+
+        footer select {
+            position: absolute;
+            top: 40px;
+            right: 20px;
+        }
+
+        footer .fcopy {
+            position: absolute;
+            top: 60px;
+            left: 170px;
+            font-size: 13px;
+            display: flex;
+        }
+
+        footer .fcopy li {
+            margin-right: 10px;
+        }
+
+        .popup {
+            width: 550px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            text-align: center;
+            padding: 20px;
+            border: 2px solid #008b00;
+            border-radius: 20px;
+            z-index: 9999;
+            display: none;
+        }
+
+        .popup h2 {
+            color: #1a4975;
+            margin-bottom: 20px;
+        }
+
+        .popup .text {
+            margin: 20px 0;
+        }
+
+        .popup .button {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <header>
+
+            <h1>
+                <a href=""><img src="images/logo1.png" alt="유진건설"></a>
+            </h1>
+            <div class="menubg"></div>
+            <nav>
+                <ul class="main">
+                    <li> <a href="#">회사소개</a>
+                        <ul class="sub">
+                            <li><a href="#">인사말</a></li>
+                            <li><a href="#">조직구성도</a></li>
+                            <li><a href="#">오시는길</a></li>
+                        </ul>
+                    </li>
+                    <li> <a href="#">사업영역</a>
+                        <ul class="sub">
+                            <li><a href="#">전원주택</a></li>
+                            <li><a href="#">도시재생</a></li>
+                            <li><a href="#">인테리어</a></li>
+                        </ul>
+                    </li>
+                    <li> <a href="#">입주정보</a>
+                        <ul class="sub">
+                            <li><a href="#">입주단지</a></li>
+                            <li><a href="#">입주캘린더</a></li>
+
+                        </ul>
+                    </li>
+                    <li> <a href="#">고객센터</a>
+                        <ul class="sub">
+                            <li><a href="#">공지사항</a></li>
+                            <li><a href="#">건축상담</a></li>
+                            <li><a href="#">홍보자료실</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+        </header>
+        <div class="contents">
+            <div class="slide">
+                <ul>
+                    <li class="s1"> <a href="#">
+                            <p>역동적인 패기와 도전하는 자세로</p>
+                        </a> </li>
+                    <li class="s2"> <a href="#">
+                            <p>창의적이며 혁신적인 사고를 통해</p>
+                        </a> </li>
+                    <li class="s3"> <a href="#">
+                            <p>항상 시대를 앞서가는 유진건설</p>
+                        </a> </li>
+                </ul>
+            </div>
+            <div class="content">
+                <article class="content1">
+                    <h2> 공지사항 </h2>
+                    <div>
+                        <table>
+                            <tr>
+                                <th> <a href="#" class="pp">상호 존중 및 안전 문화 확산 캠페인 시행 </a> </th>
+                                <td>2018-12-31</td>
+                            </tr>
+                            <tr>
+                                <th> <a href="#">홈페이지 개인정보처리방침 변경 안내</a> </th>
+                                <td>2018-12-28</td>
+                            </tr>
+                            <tr>
+                                <th> <a href="#">연구개발 IT분야 경력직 모집</a> </th>
+                                <td> 2018-11-20</td>
+                            </tr>
+                            <tr>
+                                <th><a href="#">근로자의 날 휴무 안내</a> </th>
+                                <td> 2018-04-20</td>
+                            </tr>
+                        </table>
+                    </div>
+                </article>
+                <article class="content2">
+                    <h2>갤러리</h2>
+                    <div>
+                        <ul>
+                            <li><a href="#"><img src="g1.jpg" alt="갤러리후기1"></a></li>
+                            <li><a href="#"><img src="g2.jpg" alt="갤러리후기2"></a></li>
+                            <li><a href="#"><img src="g3.jpg" alt="갤러리후기3"></a></li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="content3">
+                    <h2>바로가기</h2>
+                    <ul>
+                        <li><a href="#">
+                                <p><img src="sub1.jpg" alt="홍보영상"></p>
+                                <span>홍보영상</span>
+                            </a></li>
+                        <li><a href="#">
+                                <p><img src="sub2.jpg" alt="상담문의"></p>
+                                <span>상담문의</span>
+                            </a></li>
+                        <li><a href="#">
+                                <p><img src="sub3.jpg" alt="견적요청"></p>
+                                <span>견적요청</span>
+                            </a></li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+        <footer>
+            <ul class="fmenu">
+                <li><a href="">법적고지</a></li>
+                <li><a href="">개인정보취급방침</a></li>
+                <li><a href="">개인정보처리방침</a></li>
+                <li><a href="">저작권보호정책</a></li>
+
+            </ul>
+
+            <ul class="fcopy">
+                <li>전화번호 : (031) 218-0700</li>
+                <li>사업자등록번호 : 605-82-05257</li>
+                <li>대표자 : 김철수</li>
+                <li>copyright&copy; 2010 by Youjin construction company. All rights reserved.</li>
+            </ul>
+            <select>
+                <option>패밀리사이트</option>
+                <option>건축자재업체</option>
+                <option>인테리어업체</option>
+                <option>건설공제조합</option>
+            </select>
+        </footer>
+        <div class="popup">
+            <h2>상호존중 및 안전문화확산 캠페인 시행</h2>
+            <ul class="text">
+                <li>바른 호칭 사용은 신규 인원을 투입 시 작업자의 안전모에</li>
+                <li>이름표를 부착하여 아침 조회 시간을 비롯해 현장에서 마주칠 때</li>
+                <li>서로의 이름을 부르는 것이다.</li>
+                <li>Clean-ZONE 운영은 현장 직원이 위생 시설(화장실, 샤워실, 휴게실),</li>
+                <li>이동 동선(계단실, 리프트 입구), 야적장 및 가공장 등의 장소를 </li>
+                <li>상시 점검하고 청결을 유지하도록 한다.</li>
+                <li>5분 정리 운동으로 매일 작업 종료 5분 전 작업장의 주변 정리정돈을</li>
+                <li>생활화하여 청결한 현장에서 근무할 수 있는 환경을 마련한다.</li>
+            </ul>
+            <p class="button"><button>CLOSE X</button></p>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            //메뉴
+            $('.main>li').mouseenter(function () {
+                $('.sub, .menubg').stop().slideDown()
+            })
+            $('.main>li').mouseleave(function () {
+                $('.sub, .menubg').stop().slideUp();
+            })
+            //팝업창
+            $('.pp').click(function () {
+                $('.popup').show();
+                return false;
+            })
+            $('button').click(function () {
+                $('.popup').hide();
+            })
+            //페이드인아웃
+            var t = 0;
+            function slide() {
+                if (t < 2) {
+                    t++;
+                } else {
+                    t = 0
+                }
+                $('.slide ul li').fadeOut()
+                $('.slide ul li').eq(t).fadeIn()
+            }
+            setInterval(slide, 2000)
+        })
+    </script>
+</body>
+
+</html>

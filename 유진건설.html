@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="script/jquery-1.12.3.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    body {
+      background: #fff;
+      color: #333;
+    }
+
+    .wrap {
+      width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    header {
+      background: #fcc;
+      height: 100px;
+      padding-top: 35px;
+      padding-left: 10px;
+      position: relative;
+    }
+
+    header h1 {
+      width: 177px;
+      height: 53px;
+    }
+
+    header h1 a {
+      display: block;
+      height: 100%;
+    }
+
+    nav {
+      position: absolute;
+      top: 59px;
+      right: 0;
+      z-index: 6;
+    }
+
+    .main {
+      display: flex;
+    }
+
+    .main>li>a {
+      display: block;
+      width: 120px;
+      background: #1a4975;
+      text-align: center;
+      font-weight: bold;
+      color: #fff;
+      padding: 10px;
+    }
+
+    .main>li>a:hover {
+      background: #333;
+    }
+
+    .sub {
+      display: none;
+    }
+
+    .sub>li>a {
+      display: block;
+      padding: 5px;
+      text-align: center;
+      font-size: 14px;
+      color: #fff;
+    }
+
+    .sub>li>a:hover {
+      background: #1a4975;
+    }
+
+    .menubg {
+      background: rgba(0, 0, 0, .8);
+      width: 100%;
+      height: 150px;
+      position: absolute;
+      top: 100px;
+      left: 0;
+      z-index: 5;
+      display: none;
+    }
+
+    .slide {
+      height: 300px;
+      background: #369;
+      position: relative;
+    }
+
+    .slide ul li {
+      width: 1200px;
+      height: 300px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: none;
+    }
+
+    .slide ul li.s1 {
+      background: url(s1.jpg) no-repeat center/cover;
+      display: block;
+    }
+
+    .slide ul li.s2 {
+      background: url(s2.jpg) no-repeat center/cover;
+
+    }
+
+    .slide ul li.s3 {
+      background: url(s3.jpg) no-repeat center/cover;
+    }
+
+    .slide ul li a {
+      display: block;
+      height: 100%;
+    }
+
+    .slide ul li p {
+      background: rgba(0, 0, 0, .3);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      font-size: 28px;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    .content {
+      height: 200px;
+      background: #ccc;
+      display: flex;
+    }
+
+.content1 h2{
+  width: 120px;
+  height: 34px;
+  background: #1a4975;
+  text-align: center;
+  color: #fff;
+  font-size: 18px;
+  padding: 5px 0;
+}
+.content1 div{
+  background: #1a4975;
+  padding: 10px;
+  height: 166px;
+}
+table {
+  color: #fff;
+}
+
+table th{
+  text-align: left;
+}
+table tr{
+  border-bottom: 1px dashed #fff;
+}
+table a{
+  padding: 5px;
+  display: block;
+  width: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.content2 h2{
+  width: 120px;
+  height: 34px;
+  background: #75531a;
+  text-align: center;
+  color: #fff;
+  font-size: 18px;
+  padding: 5px 0;
+}
+.content2 div{
+  background: #75531a;
+  padding: 10px;
+  height: 166px;
+}
+.content2 div ul{
+  display: flex;
+  justify-content: space-around;
+}
+.content2 div ul li img{
+  width: 120px;
+  height: 150px;
+}
+    .content article {
+      width: 400px;
+    }
+
+    .content .content2 {
+      background: #fff;
+    }
+
+    footer {
+      height: 100px;
+      background: #333;
+    }
+    .popup{
+      width: 500px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      background: #fff;
+      text-align: center;
+      z-index: 999;
+      padding: 20px;
+      border: 2px solid tomato;
+      border-radius: 20px;
+      display: none;
+    }
+    .popup h2{
+      color: #1a4975;
+      margin-bottom: 20px;
+    }
+    .popup .text{
+      margin: 20px 0;
+    }
+    .popup .button {
+      text-align: right;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <h1><a href="#"><img src="images/logo1.png" alt="유진건설"></a></h1>
+      <div class="menubg"></div>
+      <nav>
+        <ul class="main">
+          <li>
+            <a href="#">회사소개</a>
+            <ul class="sub">
+              <li><a href="#">인사말</a></li>
+              <li><a href="#">조직구성도</a></li>
+              <li><a href="#">오시는길</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">사업영역</a>
+            <ul class="sub">
+              <li><a href="#">전원주택</a></li>
+              <li><a href="#">도시재생</a></li>
+              <li><a href="#">인테리어</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">입주정보</a>
+            <ul class="sub">
+              <li><a href="#">입주단지</a></li>
+              <li><a href="#">입주캘린더</a></li>
+
+            </ul>
+          </li>
+          <li>
+            <a href="#">고객센터</a>
+            <ul class="sub">
+              <li><a href="#">공지사항</a></li>
+              <li><a href="#">건축상담</a></li>
+              <li><a href="#">홍보자료실</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div class="contents">
+      <div class="slide">
+        <ul>
+          <li class="s1"><a href="#">
+              <p>역동적인 패기와 도전하는 자세로</p>
+            </a></li>
+          <li class="s2"><a href="#">
+              <p>창의적이며 혁신적인 사고를 통해</p>
+            </a></li>
+          <li class="s3"><a href="#">
+              <p>항상 시대를 앞서가는 유진건설</p>
+            </a></li>
+        </ul>
+      </div>
+      <div class="content">
+        <article class="content1">
+          <h2> 공지사항 </h2>
+          <div>
+            <table>
+              <tr>
+                <th> <a href="#" class="pp">상호 존중 및 안전 문화 확산 캠페인 시행 </a> </th>
+                <td>2018-12-31</td>
+              </tr>
+              <tr>
+                <th> <a href="#">홈페이지 개인정보처리방침 변경 안내</a> </th>
+                <td>2018-12-28</td>
+              </tr>
+              <tr>
+                <th> <a href="#">연구개발 IT분야 경력직 모집</a> </th>
+                <td> 2018-11-20</td>
+              </tr>
+              <tr>
+                <th><a href="#">근로자의 날 휴무 안내</a> </th>
+                <td> 2018-04-20</td>
+              </tr>
+            </table>
+          </div>
+
+        </article>
+        <article class="content2">
+          <h2>갤러리</h2>
+          <div>
+            <ul>
+              <li><a href="#"><img src="g1.jpg" alt="갤러리1"></a></li>
+              <li><a href="#"><img src="g2.jpg" alt="갤러리2"></a></li>
+              <li><a href="#"><img src="g3.jpg" alt="갤러리3"></a></li>
+            </ul>
+          </div>
+        </article>
+        <article class="content3"></article>
+      </div>
+    </div>
+    <footer></footer>
+    <div class="popup">
+      <h2>상호존중 및 안전문화확산 캠페인 시행</h2>
+      <ul class="text">
+          <li>바른 호칭 사용은 </li>
+          <li>이름표를 부착하여</li>
+          <li>서로의 이름을 .</li>
+          <li>Clean-ZONE ,</li>
+          <li>이동 동선(계단실, 리프트 입구), 야적장 및 가공장 
+      </ul>
+      <p class="button"><button>CLOSE X</button></p>
+  </div>
+  </div>
+  <script>
+    $(function(){
+      //메뉴
+      $('.main>li').mouseenter(function(){
+        $('.sub, .menubg').stop().slideDown()
+      })
+      $('.main>li').mouseleave(function(){
+        $('.sub, .menubg').stop().slideUp()
+      })
+  //슬라이드 (페이드인 아웃)
+       var t=0;
+       function slide(){
+          if(t<2){
+            t++;
+          }else{
+            t=0
+          }
+          $('.slide ul li').fadeOut()
+          $('.slide ul li').eq(t).fadeIn()
+       }
+      setInterval(slide,2000) 
+
+     //팝업
+     $('.pp').click(function(){
+      $('.popup').show();
+      return false;
+     }) 
+     $('button').click(function(){
+      $('.popup').hide();
+     })
+      
+    })
+  </script>
+</body>
+
+</html>

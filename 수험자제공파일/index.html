@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="jquery/jquery-1.12.3.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    img {
+      max-width: 100%;
+      vertical-align: top;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    body {
+      background: #fff;
+      color: #333;
+    }
+
+    .wrap {
+      margin: 0 auto;
+      width: 1200px;
+      height: 700px;
+      background: #fc6;
+      position: relative;
+    }
+
+    header {
+      background: #fcc;
+      height: 100px;
+      padding-top: 35px;
+      padding-left: 10px;
+      position: relative;
+    }
+
+    header h1 {
+      width: 177px;
+      height: 53px;
+    }
+
+    header h1 a {
+      display: block;
+      height: 100%;
+    }
+
+    nav {
+      position: absolute;
+      top: 59px;
+      right: 0;
+      z-index: 6;
+    }
+
+    .main {
+      display: flex;
+    }
+
+    .main>li>a {
+      display: block;
+      width: 120px;
+      background: #1a4975;
+      color: #fff;
+      text-align: center;
+      font-weight: bold;
+      padding: 10px;
+    }
+
+    .main>li>a:hover {
+      background: #333;
+    }
+
+    .sub {
+      display: none;
+    }
+
+    .sub>li>a {
+      display: block;
+      padding: 5px;
+      text-align: center;
+      font-size: 14px;
+      color: #fff;
+    }
+
+    .sub>li>a:hover {
+      background: #1a4795;
+    }
+
+    .menubg {
+      background: green;
+      width: 100%;
+      height: 150px;
+      position: absolute;
+      top: 100px;
+      left: 0;
+      display: none;
+    }
+
+    .slide {
+      height: 300px;
+      background: #369;
+      position: relative;
+    }
+
+    .slide ul li {
+      width: 1200px;
+      height: 300px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: none;
+    }
+
+    .slide ul li.s1 {
+      background: url(슬라이드/s1.jpg) no-repeat center/cover;
+      display: block;
+    }
+
+    .slide ul li.s2 {
+      background: url(슬라이드/s2.gif) no-repeat center/cover;
+    }
+
+    .slide ul li.s3 {
+      background: url(슬라이드/s3.jpg) no-repeat center/cover;
+    }
+
+    .slide ul li a {
+      display: block;
+      height: 100%;
+    }
+
+    .slide ul li p {
+      background: rgba(0, 0, 0, 0.3);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      font-size: 28px;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    .content {
+      height: 200px;
+      background: #ccc;
+      display: flex;
+    }
+    .content1 h2{
+      width: 120px;
+      height: 34px;
+      background: #1a4975;
+      color: #fff;
+      text-align: center;
+      font-size: 18px;
+      padding: 5px 0;
+    }
+    .content1 div{
+      background: #1a4975;
+      height: 166px;
+      padding: 10px;
+    }
+    .content1 table{
+      color: #fff;
+    }
+    table th{
+      text-align: left;
+    }
+    table tr{
+      border-bottom: 1px dashed #fff;
+    }
+    table a{
+      display: block;
+      padding: 5px;
+      width: 250px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .content article {
+      width: 33.3333%;
+    }
+
+    .content .content2 {
+      background: #fff;
+    }
+
+    footer {
+      height: 100px;
+      background: #333;
+    }
+    .popup{
+      width: 500px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      background: #fff;
+      text-align: center;
+      z-index: 9999;
+      padding: 20px;
+      border: 2px solid #fc6;
+      display: none;
+    }
+    .popup .button {
+      text-align: right;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <h1><a href="#"><img src="로고/유진건설.png" alt="유진건설"></a></h1>
+      <div class="menubg"></div>
+      <nav>
+        <ul class="main">
+          <li>
+            <a href="#">회사소개</a>
+            <ul class="sub">
+              <li><a href="#">인사말</a></li>
+              <li><a href="#">조직구성도</a></li>
+              <li><a href="#">오시는길</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">사업영역</a>
+            <ul class="sub">
+              <li><a href="#">전원주택</a></li>
+              <li><a href="#">도시재생</a></li>
+              <li><a href="#">인테리어</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">입주정보</a>
+            <ul class="sub">
+              <li><a href="#">입주단지</a></li>
+              <li><a href="#">입주캘린더</a></li>
+
+            </ul>
+          </li>
+          <li>
+            <a href="#">고객센터</a>
+            <ul class="sub">
+              <li><a href="#">공지사항</a></li>
+              <li><a href="#">건축상담</a></li>
+              <li><a href="#">홍보자료실</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div class="contents">
+      <div class="slide">
+        <ul>
+          <li class="s1"><a href="">
+              <p>1역동적인 패기와 도전하는 자세로</p>
+            </a></li>
+          <li class="s2"><a href="">
+              <p>2창의적이며 혁신적인 사고를 통해</p>
+            </a></li>
+          <li class="s3"><a href="">
+              <p>3항상 시대를 앞서가는 유진건설</p>
+            </a></li>
+        </ul>
+      </div>
+      <div class="content">
+        <article class="content1">
+          <h2>
+            공지사항
+          </h2>
+          <div>
+            <!-- 공지사항 내용 -->
+            <table>
+              <tr>
+                <th><a href="#" class="pp">상호 존중 및 안전 문화 확산 캠페인 시행</a></th>
+                <td>2018-12-31</td>
+              </tr>
+              <tr>
+                <th><a href="#">홈페이지 개인정보처리방침 변경 안내</a></th>
+                <td>2018-12-28</td>
+              </tr>
+              <tr>
+                <th><a href="#">연구개발 IT분야 경력직 모집</a></th>
+                <td>2018-11-20</td>
+              </tr>
+              <tr>
+                <th><a href="#">근로자의 날 휴무 안내</a></th>
+                <td>2018-04-20</td>
+              </tr>
+
+            </table>
+          </div>
+        </article>
+        <article class="content2"></article>
+        <article class="content3"></article>
+      </div>
+    </div>
+    <footer></footer>
+    <!-- 팝업 -->
+    <div class="popup">
+      <h2>상호 존중 및 안전 문화 확산 캠페인 시행</h2>
+      <ul class="text">
+        <li>바른 호칭 사용</li>
+        <li>Clean-ZONE</li>
+        <li>5분 정리 운동</li>
+      </ul>
+      <p class="button"><button>close X</button></p>
+    </div>
+  </div>
+  <script>
+    $(function () {
+      //메뉴
+      $('.main>li').mouseenter(function () {
+        $('.sub,.menubg').stop().slideDown()
+      })
+      $('.main>li').mouseleave(function () {
+        $('.sub,.menubg').stop().slideUp()
+      })
+      //페이드인아웃
+      var t = 0;
+      function slide() {
+        if (t < 2) {
+          t++;
+        } else {
+          t = 0
+        }
+
+        $('.slide ul li').fadeOut()
+        $('.slide ul li').eq(t).fadeIn()
+      }
+      setInterval(slide, 2000)
+      //팝업창
+      $('.pp').click(function(){
+        $('.popup').show();
+        return false
+      })
+      $('button').click(function(){
+        $('.popup').hide();
+      })
+
+
+
+    })
+  </script>
+</body>
+
+</html>
